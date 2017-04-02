@@ -1,5 +1,7 @@
 ***put all function prototypes and defined types into crossfire***
-
+// - done
+/  - mostly done
+   - to do
 
 Issues
 * fix userInteraction getDesiredElement crashes when invalid element is entered
