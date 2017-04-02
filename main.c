@@ -35,6 +35,8 @@ int main(){
 			//move
 			//quite
 		//check if game terminates
+	int choice;  //Number to be entered by user
+	option(&choice);
 
 
 return 0;
