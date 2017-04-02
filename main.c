@@ -1,4 +1,3 @@
-#include "Functions.h"
 #include "crossfireOperations.h"
 
 
