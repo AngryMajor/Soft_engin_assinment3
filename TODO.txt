@@ -12,6 +12,7 @@ place players
 
 start turn loop
 /give players options on their turn(need to be brought over from other assingment)
+print players and their locations option
 /players can attack near(neads bringing over and adapting)
 players can attack far
 plyaers can attack magic
