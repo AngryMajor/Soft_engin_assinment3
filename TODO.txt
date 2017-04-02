@@ -1,0 +1,21 @@
+***put all function prototypes and defined types into crossfire***
+
+
+Issues
+* fix userInteraction getDesiredElement crashes when invalid element is entered
+
+/get players form user (move to function)
+/set type and stats(add pointer to players current location)
+	//build 2d board
+/fill board slots with tile types(needs to be intergrated)
+place players
+
+start turn loop
+/give players options on their turn(need to be brought over from other assingment)
+/players can attack near(neads bringing over and adapting)
+players can attack far
+plyaers can attack magic
+/players can move(neads beinging over and adapting)
+players can quite
+players can die
+game can and dose terminate
