@@ -12,7 +12,24 @@
 #include <stdlib.h>
 #include <time.h>
 
+struct player
+{
+	int type;
+	char name[32];
+	int life_points;
+	int smartness;
+	int strength;
+	int magic_skills;
+	int luck;
+	int dexterity;
+};
+void option(int *n);  //Function prototype
+void elf(struct player *Current_Player);  //Function prototype
+void human(struct player *Current_Player);   //Function prototype
+void ogre(struct player *Current_Player);   //Function prototype
+void wizard(struct player *Current_Player); //Function prototype
 
+static int Joined_Players = 0;
 
 /*
  * Definition of boolean types
