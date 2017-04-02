@@ -39,5 +39,5 @@
 	if(Joined_Players < 2)
 	{
 		printf("\nSorry, there is not enough players to play the game.\n");
-		return main();
+		return main();//!!!!!!!!!!!!!!!!!!!!!! Dont return main here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	}
