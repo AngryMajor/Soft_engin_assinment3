@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "crossfireOperations.h"
 
 
@@ -36,8 +34,8 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
 	for(int i =1; i< boardSize-1; i++){
 		for(int j=1;j < boardSize-1; j++){
 			board[i][j].up = &board[i-1][j];
-			board[i][j].right = &board[i][j+1];
 			board[i][j].down = &board[i+1][j];
+			board[i][j].right = &board[i][j+1];
 			board[i][j].left = &board[i][j-1];
 		}
 	}
@@ -125,6 +123,33 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
  * 	column: the column in which the desired slot is located
  * 	initialSlot: the slot from which the slot search should start
  */
+ 
+ /*note: copy past this in to use this function*/
+ 
+		// /*If the the required slot is closer to the down-right
+	 // * corner of the board the search starts from downRight,
+	 // * which points to slot at position (boardSize-1, boarSize -1)*/
+	// if(row >= boardSize/2){
+		// if(column >= boardSize/2)
+			// reachDesiredElement(row,column,downRight);
+		// else
+		// /*If the the required slot is closer to the down-left
+		// * corner of the board the search starts from downLeft,
+		// * which points to slot at position (boardSize-1, 0)*/
+			// reachDesiredElement(row,column,downLeft);
+	// } else {
+		// /*If the the required slot is closer to the up-right
+		// * corner of the board the search starts from upRight,
+		// * which points to slot at position (0, boarSize -1)*/
+		// if(column >= boardSize/2)
+			// reachDesiredElement(row,column, upRight);
+		// /*If the the required slot is closer to the up-left
+		// * corner of the board the search starts from upLeft,
+		// * which points to slot at position (0, 0)*/
+		// else reachDesiredElement(row,column,upLeft);
+	// }
+ 
+ 
 void reachDesiredElement(int row, int column, struct slot * initialSlot){
 
 	bool found = false;
