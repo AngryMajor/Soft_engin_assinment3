@@ -8,9 +8,11 @@
 #ifndef CROSSFIREOPERATIONS_H_
 #define CROSSFIREOPERATIONS_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 
-#endif /* CROSSFIREOPERATIONS_H_ */
 
 /*
  * Definition of boolean types
@@ -79,3 +81,5 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
  * 	initialSlot: the slot from which the slot search should start
  */
 void reachDesiredElement(int row, int column, struct slot * initialSlot);
+
+#endif /* CROSSFIREOPERATIONS_H_ */
