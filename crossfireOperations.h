@@ -12,6 +12,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define NumOfSlotTypes 3
+
 struct player
 {
 	int type;
@@ -37,6 +39,7 @@ static int Joined_Players = 0;
  */
 typedef int bool;
 enum { false, true };
+
 
 /*
  * The slot template
