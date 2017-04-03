@@ -1,8 +1,12 @@
 	
+//put this in a function, i think you just forgot to copy the function part over formt the old assingment
+
 	int choice;  //Number to be entered by user
 	printf("Please input how many players are playing the game: ");  //Prompt user to enter a number
 	scanf("%d", &choice);  //Reads an integer used to represent the number of players playing the game
 	struct player player[choice];  
+//	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//	this aray will be forgoten as soon as the function ends, either make it static and return a pointer to it or move it and pass it into this function
 	
 	for(int i = 0; i < choice; i++)  //Loop amount of times user inputed for choice
 	{
