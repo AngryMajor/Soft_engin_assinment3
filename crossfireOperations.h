@@ -25,7 +25,7 @@ struct player
 	int luck;
 	int dexterity;
 };
-void option(int *n);  //Function prototype
+void option();  //Function prototype
 void elf(struct player *Current_Player);  //Function prototype
 void human(struct player *Current_Player);   //Function prototype
 void ogre(struct player *Current_Player);   //Function prototype
