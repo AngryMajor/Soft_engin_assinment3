@@ -55,6 +55,8 @@ struct slot{
 	struct slot *up;
 	// adjacent down slot
 	struct slot *down;
+	
+	int thisSlotType;//holds the slot type of this slot
 }slot;
 
 /*
