@@ -9,7 +9,7 @@ Issues
 /get players form user (move to function)
 /set type and stats(add pointer to players current location)
 	//build 2d board
-/fill board slots with tile types(needs to be intergrated)
+	//fill board slots with tile types(needs to be intergrated)
 place players
 
 start turn loop
