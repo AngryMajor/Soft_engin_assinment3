@@ -209,4 +209,16 @@ void reachDesiredElement(int row, int column, struct slot * initialSlot){
 	}
 }
 
+/*
+function for printint map slot types
+takes a pointer to the map slot to print
+returns nothing but prints to screen
+*/
 
+void PrintMapSlotType(struct slot *toPrint){
+	
+	char *SlotNames[] = {"Flat Ground","Hill","City"};
+	
+	printf("%s",SlotNames[(*toPrint).thisSlotType]);
+	
+}  //End of printmapslot
