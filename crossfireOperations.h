@@ -104,4 +104,12 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
  */
 void reachDesiredElement(int row, int column, struct slot * initialSlot);
 
+/*
+function for printint map slot types
+takes a pointer to the map slot to print
+returns nothing but prints to screen
+*/
+
+void PrintMapSlotType(struct slot *toPrint);
+
 #endif /* CROSSFIREOPERATIONS_H_ */
