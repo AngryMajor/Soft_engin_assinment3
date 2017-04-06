@@ -33,6 +33,10 @@ void wizard(struct player *Current_Player); //Function prototype
 
 static int Joined_Players = 0;
 
+void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+void MagicAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+
 /*
  * Definition of boolean types
  * This avoids using <stdbool.h>
