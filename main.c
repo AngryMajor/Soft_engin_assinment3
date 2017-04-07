@@ -5,7 +5,7 @@
 int main()
 {
 
-	int row, column, boardSize;
+	int row, columm;
 	
 	//creat players
 
