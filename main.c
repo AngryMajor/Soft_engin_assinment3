@@ -22,7 +22,7 @@ int main()
 	struct slot *downRight;
 
 	//Creates the board
-	createBoard(boardSize,&upLeft, &upRight, &downLeft, &downRight);
+	createBoard(&upLeft, &upRight, &downLeft, &downRight);
 	
 	struct player players[numberofplayers];
 	
