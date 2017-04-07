@@ -6,23 +6,9 @@ int main()
 {
 
 	int row, columm;
-	
-	//creat players
-
-	//pointer to slot (0,0)
-	struct slot *upLeft;
-
-	//pointer to slot (0,boardSize -1)
-	struct slot *upRight;
-
-	//pointer to slot (boardSize - 1, 0)
-	struct slot *downLeft;
-
-	//pointer to slot (boardSize - 1, boardSize -1)
-	struct slot *downRight;
 
 	//Creates the board
-	createBoard(&upLeft, &upRight, &downLeft, &downRight);
+	createBoard();
 	
 	struct player players[numberofplayers];
 	
