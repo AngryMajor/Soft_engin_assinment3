@@ -21,9 +21,6 @@ int main()
 	//pointer to slot (boardSize - 1, boardSize -1)
 	struct slot *downRight;
 
-	//Obtains the board size from the user input
-	boardSize = getBoardSize();
-
 	//Creates the board
 	createBoard(boardSize,&upLeft, &upRight, &downLeft, &downRight);
 	
@@ -32,13 +29,23 @@ int main()
 	
 	PlacePlayer(players[0]);
 	
-	//turn loop
-		getPlayerAction(players[0]);
-			//attack near
-			//attack far
-			//attack magic
-			//move
-			//quite
+	//round loop
+		for(int i=0;i<numberofplayers;i++){//start of player turn loop
+			int action = getPlayerAction(players[0]);
+			switch (action){
+				case 0://quit
+					break;
+				case 1://move
+					break;
+				case 2://near attack
+					break;
+				case 3://far attack
+					break;
+				case 4://magic attack
+					break;
+				default:
+			}//end of action switch
+		}//end of player turn loop
 		//check if game terminates
 	
 	int choice;  //Number to be entered by user
