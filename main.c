@@ -22,13 +22,13 @@ int main()
 				case 1: //Move
 					break;
 				case 2: //Near Attack
-					void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+					NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 					break;
 				case 3: //Distant Attack
-					void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+					DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 					break;
 				case 4: //Magic Attack
-					void MagicAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+					MagicAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 					break;
 				default:
 			} //End of switch action
