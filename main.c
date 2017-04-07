@@ -2,7 +2,8 @@
 #define numberofplayers 6
 
 
-int main(){
+int main()
+{
 
 	int row, column, boardSize;
 	
