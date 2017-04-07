@@ -90,7 +90,7 @@ int getPlayerAction(struct player Player);
 
 //Asks the user to insert the row and the column of the element
 //she wants to find given a board of size equal to maxsize
-struct slot *getDesiredElement(int maxsize, int * row, int * col);
+struct slot *getDesiredElement( int * row, int * col);
 
 /*
  * Functions createBoard and reachDesiredElement
