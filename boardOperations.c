@@ -110,13 +110,13 @@ void createBoard(){
 
 
 	//assigns a pointer to slot at position (0, 0)
-	*upLeft = &board[0][0];
+	upLeft = &board[0][0];
 	//assigns pointer of pointer to slot at position (0, boardSize -1)
-	*upRight = &board[0][boardSize -1];
+	upRight = &board[0][boardSize -1];
 	//assigns pointer of pointer to slot at position ( boardSize -1,)
-	*downLeft = &board[boardSize -1][0];
+	downLeft = &board[boardSize -1][0];
 	//assigns pointer of pointer to slot at position (boardSize -1, boardSize -1)
-	*downRight = &board[boardSize -1][boardSize -1];
+	downRight = &board[boardSize -1][boardSize -1];
 	}
 
 
