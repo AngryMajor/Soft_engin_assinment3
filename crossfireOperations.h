@@ -109,7 +109,7 @@ struct slot *getDesiredElement(int maxsize, int * row, int * col);
  * 	downLeft: pointer of pointer to slot at position (size -1, 0)
  * 	upLeft: pointer of pointer to slot at position (size - 1, size -1)
  */
-void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight);
+void createBoard(struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight);
 
 /*
  * This function traverses the board to find a slot at a predefined
