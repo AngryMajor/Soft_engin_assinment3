@@ -10,7 +10,7 @@
  * 	downLeft: pointer of pointer to slot at position (boardSsize -1, 0)
  * 	upLeft: pointer of pointer to slot at position (boardSize - 1, boardSize -1)
  */
-void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight){
+void createBoard(struct slot **upLeft, struct slot **upRight, struct slot **downLeft, struct slot **downRight){
 
 	//The board is represented as a pointer of pointer to slots
 	//This allocates in memory the space for the pointers to each row of the board
