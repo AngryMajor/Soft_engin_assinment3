@@ -1,14 +1,11 @@
 #include "crossfireOperations.h"
 #define numberofplayers 6
 
-
 int main()
 {
 
 	int row, columm;
-
-	//Creates the board
-	createBoard();
+	createBoard(); //Creates the board
 	
 	struct player players[numberofplayers];
 	
@@ -16,23 +13,27 @@ int main()
 	PlacePlayer(players[0]);
 	
 	//round loop
-		for(int i=0;i<numberofplayers;i++){//start of player turn loop
+		for(int i=0;i<numberofplayers;i++)
+		{ //Start of player turn loop
 			int action = getPlayerAction(players[0]);
 			switch (action){
-				case 0://quit
+				case 0: //Quit
 					break;
-				case 1://move
+				case 1: //Move
 					break;
-				case 2://near attack
+				case 2: //Near Attack
+					void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 					break;
-				case 3://far attack
+				case 3: //Distant Attack
+					void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 					break;
-				case 4://magic attack
+				case 4: //Magic Attack
+					void MagicAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 					break;
 				default:
-			}//end of action switch
-		}//end of player turn loop
-		//check if game terminates
+			} //End of switch action
+		} //End of loop for player's turn
+		//Check if the game terminates
 	
 	int choice;  //Number to be entered by user
 	
