@@ -75,6 +75,14 @@ struct slot{
  * FUNCTIONS PROTOTYPES
  */
 
+ /*
+funciton that gets the players action off the user
+takes a player as input
+returns an int of what they want to do
+0=quit 1=move 2=near attack 3=far attack 4=magic attack
+*/
+int getPlayerAction(struct player Player);
+
 /*
  * Functions getBoardSize and getDesiredElement
  * manage the interaction with the users
@@ -111,7 +119,7 @@ void createBoard(int boardSize, struct slot **upLeft, struct slot **upRight, str
  * 	column: the column in which the desired slot is located
  * 	initialSlot: the slot from which the slot search should start
  */
-struct slot *reachDesiredElement(int row, int column, struct slot * initialSlot);
+void reachDesiredElement(int row, int column, struct slot * initialSlot);
 
 /*
 function for printint map slot types
