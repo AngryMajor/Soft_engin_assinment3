@@ -21,7 +21,7 @@ int getBoardSize(){
 //THis function takes as input the size of the board and the pointers
 // to the integers representing the row and the column of the slot that
 // the user want to retrieve
-void getDesiredElement(int boardSize, int * row, int * col){
+struct slot *getDesiredElement(int boardSize, int * row, int * col){
 	printf("Please enter the column and the Row of the desired slot \n");
 	printf("Note that size of the board is %d\n", boardSize);
 
