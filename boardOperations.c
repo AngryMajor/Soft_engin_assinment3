@@ -1,5 +1,4 @@
 #include "crossfireOperations.h"
-#include "main.c"
 
 
 /*
