@@ -26,7 +26,7 @@ int main(){
 	//Creates the board
 	createBoard(boardSize,&upLeft, &upRight, &downLeft, &downRight);
 	
-	sturct player players[numberofplayers];
+	struct player players[numberofplayers];
 	
 	
 	PlacePlayer(players[0]);
