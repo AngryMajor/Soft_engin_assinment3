@@ -1,4 +1,3 @@
-#include "boardOperations.c"
 #include "crossfireOperations.h"
 #define numberofplayers 6
 
