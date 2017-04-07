@@ -14,6 +14,9 @@
 
 #define NumOfSlotTypes 3
 
+struct slot *reachDesiredElement(int row, int column, struct slot * initialSlot);
+void PlacePlayer(struct player player);
+
 struct player
 {
 	int type;
@@ -24,6 +27,7 @@ struct player
 	int magic_skills;
 	int luck;
 	int dexterity;
+	struct slot *location;
 };
 void option();  //Function prototype
 void elf(struct player *Current_Player);  //Function prototype
