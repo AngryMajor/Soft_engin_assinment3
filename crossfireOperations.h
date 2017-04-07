@@ -13,7 +13,7 @@
 #include <time.h>
 
 #define NumOfSlotTypes 3
-
+#define boardSize 7
 
 
 struct player
