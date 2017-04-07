@@ -123,7 +123,7 @@ void createBoard();
  * 	column: the column in which the desired slot is located
  * 	initialSlot: the slot from which the slot search should start
  */
-struct slot *reachDesiredElement(int row, int column, struct slot * initialSlot);
+struct slot *reachDesiredElement(int row, int column,const struct slot * initialSlot);
 
 /*
 function for printint map slot types
