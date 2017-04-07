@@ -1,5 +1,5 @@
 #include "crossfireOperations.h"
-
+#define numberofplayers 6
 
 
 int main(){
@@ -26,11 +26,13 @@ int main(){
 	//Creates the board
 	createBoard(boardSize,&upLeft, &upRight, &downLeft, &downRight);
 	
-	for(int i = 0; i < ; i++)
-	{
-	PlacePlayer(struct player player);
+	sturct player players[numberofplayers];
+	
+	
+	PlacePlayer(players[0]);
+	
 	//turn loop
-		//ask player what they want to do
+		getPlayerAction(players[0]);
 			//attack near
 			//attack far
 			//attack magic
@@ -39,7 +41,7 @@ int main(){
 		//check if game terminates
 	}
 	int choice;  //Number to be entered by user
-	option(&choice);
+	
 
 
 return 0;
