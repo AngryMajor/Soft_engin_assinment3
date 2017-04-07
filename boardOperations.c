@@ -162,7 +162,7 @@ void PlacePlayer(struct player player)
 	player.location = a;
 }
 
-struct slot *reachDesiredElement(int row, int column, struct slot * initialSlot){
+struct slot *reachDesiredElement(int row, int column, const struct slot * initialSlot){
 
 	bool found = false;
 	//current slot
