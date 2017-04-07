@@ -348,7 +348,7 @@ void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 	}
 	else if(AttackerPlayer->dexterity > AttackedPlayer->dexterity)
 	{
-		AttackedPlayer->life_points AttackedPlayer->life_points - (0.3 * AttackerPlayer->strength);
+		AttackedPlayer->life_points = AttackedPlayer->life_points - (0.3 * AttackerPlayer->strength);
 	}
 }
 
