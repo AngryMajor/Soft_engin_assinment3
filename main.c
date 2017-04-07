@@ -25,8 +25,10 @@ int main(){
 
 	//Creates the board
 	createBoard(boardSize,&upLeft, &upRight, &downLeft, &downRight);
-
-	//fill board
+	
+	for(int i = 0; i < ; i++)
+	{
+	PlacePlayer(struct player player);
 	//turn loop
 		//ask player what they want to do
 			//attack near
@@ -35,6 +37,7 @@ int main(){
 			//move
 			//quite
 		//check if game terminates
+	}
 	int choice;  //Number to be entered by user
 	option(&choice);
 
