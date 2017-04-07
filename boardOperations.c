@@ -175,28 +175,28 @@ struct slot *reachDesiredElement(int row, int column, const struct slot * initia
 		//we move up
 		if(currentSlot.row > row){
 			//the current slot now points to the slot one row up
-			currentSlot = currentSlot.up;
+			currentSlot = currentSlot->up;
 
 		}
 		//if the row of the current slot is < of the row of the desired slot,
 		//we move down
 		if(currentSlot.row < row){
 			//the current slot now points to the slot one row down
-			currentSlot = currentSlot.down;
+			currentSlot = currentSlot->down;
 
 		}
 		//if the column of the current slot is > of the column of the desired slot,
 		//we move left
 		if(currentSlot.column > column){
 			//the current slot now points to the slot one column left
-			currentSlot = currentSlot.left;
+			currentSlot = currentSlot->left;
 		}
 
 		//if the column of the current slot is < of the column of the desired slot,
 		//we move right
 		if(currentSlot.column < column){
 			//the current slot now points to the slot one column right
-			currentSlot = currentSlot.right;
+			currentSlot = currentSlot->right;
 
 		}
 		//if the current slot is at a column and a row equal to the desired column and row, respectively
@@ -207,7 +207,7 @@ struct slot *reachDesiredElement(int row, int column, const struct slot * initia
 
 	}
 	
-	return currentSlot;
+	return &currentSlot;
 	
 }
 
