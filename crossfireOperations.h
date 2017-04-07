@@ -72,6 +72,14 @@ struct slot{
 }slot;
 
 /*
+global consts
+*/
+const struct slot *upRight;
+const struct slot *upLeft;
+const struct slot *downRight;
+const struct slot *downLeft;
+
+/*
  * FUNCTIONS PROTOTYPES
  */
 
