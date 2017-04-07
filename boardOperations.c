@@ -166,51 +166,51 @@ struct slot *reachDesiredElement(int row, int column, const struct slot * initia
 
 	bool found = false;
 	//current slot
-	struct slot currentSlot = *initialSlot;
+	struct slot currentSlotPtr = *initialSlot;
+	struct slot *currentSlot = &currentSlotPtr;
 
 	//while the slot is not found
 	while(found == false){
 
 		//if the row of the current slot is > of the row of the desired slot,
 		//we move up
-		if(currentSlot.row > row){
+		if(currentSlot->row > row){
 			//the current slot now points to the slot one row up
 			currentSlot = currentSlot->up;
 
 		}
 		//if the row of the current slot is < of the row of the desired slot,
 		//we move down
-		if(currentSlot.row < row){
+		if(currentSlot->row < row){
 			//the current slot now points to the slot one row down
 			currentSlot = currentSlot->down;
 
 		}
 		//if the column of the current slot is > of the column of the desired slot,
 		//we move left
-		if(currentSlot.column > column){
+		if(currentSlot->column > column){
 			//the current slot now points to the slot one column left
 			currentSlot = currentSlot->left;
 		}
 
 		//if the column of the current slot is < of the column of the desired slot,
 		//we move right
-		if(currentSlot.column < column){
+		if(currentSlot->column < column){
 			//the current slot now points to the slot one column right
 			currentSlot = currentSlot->right;
 
 		}
 		//if the current slot is at a column and a row equal to the desired column and row, respectively
 		// we found the slot
-		if(currentSlot.column == column && currentSlot->row == row){
+		if(currentSlot->column == column && currentSlot->row == row){
 			found = true;
 		}
 
 	}
 	
-	return &currentSlot;
+	return currentSlot;
 	
 }
-
 /*
 function for printint map slot types
 takes a pointer to the map slot to print
