@@ -14,8 +14,7 @@
 
 #define NumOfSlotTypes 3
 
-struct slot *reachDesiredElement(int row, int column, struct slot * initialSlot);
-void PlacePlayer(struct player player);
+
 
 struct player
 {
@@ -29,6 +28,8 @@ struct player
 	int dexterity;
 	struct slot *location;
 };
+
+void PlacePlayer(struct player player);
 void option();  //Function prototype
 void elf(struct player *Current_Player);  //Function prototype
 void human(struct player *Current_Player);   //Function prototype
@@ -85,7 +86,7 @@ int getBoardSize();
 
 //Asks the user to insert the row and the column of the element
 //she wants to find given a board of size equal to maxsize
-void getDesiredElement(int maxsize, int * row, int * col);
+struct slot *getDesiredElement(int maxsize, int * row, int * col);
 
 /*
  * Functions createBoard and reachDesiredElement
