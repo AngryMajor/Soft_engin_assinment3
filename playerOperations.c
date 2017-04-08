@@ -52,6 +52,7 @@ void elf(struct player *Current_Player)
 	Current_Player->magic_skills = (50 + rand() % 31);  //Pick a random number from 50 and 80
 	Current_Player->luck = (rand() % 41) + 61;  //Pick a random number from 60 and 100
 	Current_Player->dexterity = (rand() % 101);  //Pick a random number from 0 and 100
+	Current_Player->dead = 0;//this player is not dead
 }
 
 void human(struct player *Current_Player)
@@ -68,6 +69,7 @@ void human(struct player *Current_Player)
 	Current_Player->luck = (rand() % 101);  //Pick a random number from 0 and 1-0
 	sum = Current_Player->magic_skills + Current_Player->smartness + Current_Player->strength + Current_Player->dexterity + Current_Player->luck;  //Assign total to sum
 	sum <=300;
+	Current_Player->dead = 0;//this player is not dead
 }
 
 void ogre(struct player *Current_Player)
@@ -81,6 +83,7 @@ void ogre(struct player *Current_Player)
 	Current_Player->strength = (80 + rand() % 21);  //Pick a random number from 80 and 100
 	Current_Player->dexterity = (80 + rand() % 21);  //Pick a random number from 80 and 100
 	Current_Player->luck = 50 - Current_Player->smartness;  //Set luck to a number when smartness is taken away from 50
+	Current_Player->dead = 0;//this player is not dead
 }
 
 void wizard(struct player *Current_Player)
@@ -95,4 +98,5 @@ void wizard(struct player *Current_Player)
 	Current_Player->magic_skills = (80 + rand() % 21);  //Pick a random number from 80 and 100
 	Current_Player->dexterity = (rand() % 101);  //Pick a random number from 0 and 100
 	Current_Player->life_points = 100;  //Set life points to 100
+	Current_Player->dead = 0;//this player is not dead
 }
