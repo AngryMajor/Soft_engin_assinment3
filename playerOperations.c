@@ -1,11 +1,7 @@
 #include "crossfireOperations.h"
 
-void option()
+void creatPlayers(struct player player[], int choice)
 {
-	int choice;//Number to be entered by user
-	printf("Please input how many players are playing the game: ");  //Prompt user to enter a number
-	scanf("%d", &choice);  //Reads an integer used to represent the number of players playing the game
-	struct player player[choice];  
 	
 	for(int i = 0; i < choice; i++)  //Loop amount of times user inputed for choice
 	{
