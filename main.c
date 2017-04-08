@@ -10,14 +10,27 @@ int main()
 	int choice;//Number to be entered by user
 	printf("Please input how many players are playing the game: ");  //Prompt user to enter a number
 	scanf("%d", &choice);  //Reads an integer used to represent the number of players playing the game
+	
+	//check there are a valid number of players
+	if(choice<2){
+		printf("you must have at least 2 players\n\n");
+		return main();
+	}	
+	if(choice>6){
+		printf("you may only have up to 6 players\n\n");
+		return main();
+	}
+	
+	//creat player data
 	struct player players[choice];  
 	creatPlayers(players,choice);
+	
 	
 	
 	PlacePlayer(players[0]);
 	
 	//round loop
-		for(int i=0;i<numberofplayers;i++)
+		for(int i=0;i<choice;i++)
 		{ //Start of player turn loop
 			int action = getPlayerAction(players[0]);
 			switch (action){
@@ -32,7 +45,7 @@ int main()
 					
 					break;
 				case 4: //Magic Attack
-					choosePlayer_MagAtt(numberofplayers,players[i], players);
+					choosePlayer_MagAtt(choice,players[i], players);
 					break;
 				
 			} //End of switch action
