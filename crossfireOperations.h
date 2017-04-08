@@ -36,6 +36,7 @@ void elf(struct player *Current_Player);  //Function prototype
 void human(struct player *Current_Player);   //Function prototype
 void ogre(struct player *Current_Player);   //Function prototype
 void wizard(struct player *Current_Player); //Function prototype
+int AllPlayersNotDead(struct player players[],int choice);
 
 static int Joined_Players = 0;
 
