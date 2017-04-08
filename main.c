@@ -3,11 +3,15 @@
 
 int main()
 {
-
-	int row, columm;
-	createBoard(); //Creates the board
+	//creat the board 
+	createBoard(); 
 	
-	struct player players[numberofplayers];
+	//creat the players
+	int choice;//Number to be entered by user
+	printf("Please input how many players are playing the game: ");  //Prompt user to enter a number
+	scanf("%d", &choice);  //Reads an integer used to represent the number of players playing the game
+	struct player players[choice];  
+	creatPlayers(players,choice);
 	
 	
 	PlacePlayer(players[0]);
@@ -34,10 +38,6 @@ int main()
 			} //End of switch action
 		} //End of loop for player's turn
 		//Check if the game terminates
-	
-	int choice;  //Number to be entered by user
-	
-
 
 return 0;
 }
