@@ -7,7 +7,7 @@ void choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct play
 	for(i = 0; i < num_ofplayers ; i++)
 	{
 		if(!player[i].dead)
-			printf("%d, %s\n", i, player->name);
+			printf("%d, %s\n", i, player[i].name);
 	}
 	printf("Which player would you like to attack?:\n");
 	scanf("%d", &decision);
