@@ -1,5 +1,37 @@
 #include "crossfireOperations.h"
 
+void choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct player player[])
+{
+	int i,decision;
+	printf("Players available to attack:\n");
+	for(i = 0; i < num_ofplayers ; i++)
+	{
+		if(!player[i].dead)
+			printf("%d, %s\n", i, player->name);
+	}
+	printf("Which player would you like to attack?:\n");
+	scanf("%d", &decision);
+	if(decision > i  || decision < 0)
+	{
+		printf("Option is not valid.\n");
+		return choosePlayer_MagAtt(num_ofplayers,CurrPlayer ,player);
+	}
+	if(player[decision].dead)
+	{
+		printf("This player is dead.\n");
+		return choosePlayer_MagAtt(num_ofplayers,CurrPlayer,player);
+	}
+	MagicAttack(CurrPlayer, &player[decision]);
+}
+
+void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
+{
+	if(AttackerPlayer.smartness + AttackerPlayer.magic_skills > 150)
+	{
+		AttackedPlayer->life_points = AttackedPlayer->life_points - ((0.5 * AttackerPlayer.magic_skills) + (0.2 * AttackerPlayer.smartness));
+	}
+}
+
 void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 {
 	if(AttackedPlayer->strength <=70)
@@ -23,13 +55,5 @@ void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 	else if(AttackerPlayer->dexterity > AttackedPlayer->dexterity)
 	{
 		AttackedPlayer->life_points = AttackedPlayer->life_points - (0.3 * AttackerPlayer->strength);
-	}
-}
-
-void MagicAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
-{
-	if(AttackerPlayer->smartness + AttackerPlayer->magic_skills > 150)
-	{
-		AttackedPlayer->life_points = AttackedPlayer->life_points - ((0.5 * AttackerPlayer->magic_skills) + (0.2 * AttackerPlayer->smartness));
 	}
 }
