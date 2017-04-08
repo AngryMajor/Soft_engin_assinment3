@@ -3,6 +3,7 @@
 // - done
 /  - mostly done
    - to do
+*  - not neccessary
 
 Issues
 * fix userInteraction getDesiredElement crashes when invalid element is entered
@@ -11,15 +12,15 @@ Issues
 	// set type and stats(add pointer to players current location)
 	// build 2d board
 	// fill board slots with tile types(needs to be intergrated)
-/place players
+	// place players
 
-/ start turn loop
-/ give players options on their turn(need to be brought over from other assingment)
-print players and their locations option
+	// start turn loop
+	// give players options on their turn(need to be brought over from other assingment)
+* print players and their locations option
 / players can attack near(neads bringing over and adapting)
-/ players can attack far - Attack functions done, find players needs to be done.
-/ plyaers can attack magic - Attack functions done, find players needs to be done.
+/ players can attack distant - Attack functions done, find players needs to be done.
+	// plyaers can attack magic
 / players can move(neads beinging over and adapting)
-players can quite
+	//players can quite
 players can die
-game can and dose terminate
+	//game can and dose terminate
