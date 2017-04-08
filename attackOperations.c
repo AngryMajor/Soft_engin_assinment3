@@ -57,20 +57,20 @@ void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
 		AttackedPlayer->life_points = AttackedPlayer->life_points - ((0.5 * AttackerPlayer.magic_skills) + (0.2 * AttackerPlayer.smartness));
 	}
 }
-
-void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
+void NearAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
 {
-	if(AttackedPlayer->strength <=70)
+	if(AttackedPlayer->strength <= 70)
 	{
 		AttackedPlayer->life_points = AttackedPlayer->life_points - (0.5 * AttackedPlayer->strength);
-		printf("1. Attacked Player Life points = %d", AttackedPlayer->life_points);
+		printf("1. Attacked Player Life Points = %d", AttackedPlayer->life_points);
 	}
-	else if(AttackedPlayer->strength > 70)
+	else if(AttackedPlayer->life_points > 70)
 	{
-		AttackerPlayer->life_points = AttackerPlayer->life_points - (0.3 * AttackedPlayer->strength);
-		printf("2. Attcker Player Life Points = %d", AttackerPlayer->life_points);
+		AttackerPlayer.life_points = AttackerPlayer.life_points - (0.3 * AttackerPlayer->strength);
+		printf("2. Attacker Player Life Points = %d", AttackerPlayer.life_points);
 	}
 }
+
 
 void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 {
