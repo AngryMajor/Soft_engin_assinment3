@@ -31,7 +31,7 @@ struct player
 };
 
 void PlacePlayer(struct player player);
-void option();  //Function prototype
+void creatPlayers(struct player player[], int choice);  //Function prototype
 void elf(struct player *Current_Player);  //Function prototype
 void human(struct player *Current_Player);   //Function prototype
 void ogre(struct player *Current_Player);   //Function prototype
