@@ -22,15 +22,15 @@ int main()
 				case 1: //Move
 					break;
 				case 2: //Near Attack
-					NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+					
 					break;
 				case 3: //Distant Attack
-					DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+					
 					break;
 				case 4: //Magic Attack
-					MagicAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+					choosePlayer_MagAtt(numberofplayers,players[i], players);
 					break;
-				default:
+				
 			} //End of switch action
 		} //End of loop for player's turn
 		//Check if the game terminates
