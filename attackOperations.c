@@ -24,7 +24,20 @@ void findSlots(int reqDist, int currDist,struct slot * currSlot,struct slot * fo
 }
 void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 {
-	struct	slot*	currSlot	=	NULL;	
+	if(AttackedPlayer->strength <=70)
+	{
+		AttackedPlayer->life_points = AttackedPlayer->life_points - (0.5 * AttackedPlayer->strength);
+		printf("1. Attacked Player Life points = %d", AttackedPlayer->life_points);
+	}
+	else if(AttackedPlayer->strength > 70)
+	{
+		AttackerPlayer->life_points = AttackerPlayer->life_points - (0.3 * AttackedPlayer->strength);
+		printf("2. Attcker Player Life Points = %d", AttackerPlayer->life_points);
+	}
+}
+void choosePlayer_NearAtt(struct player CurrPlayer, struct player player[])
+{
+		struct	slot*	currSlot	=	NULL;	
 	struct	slot	*foundSlots;	
 	bool	explored[7][7] = {false};	
 	int	count	= 0;	
@@ -57,41 +70,42 @@ void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 		// * which points to slot at position (0, 0)*/
 		else a = reachDesiredElement(row,column,upLeft);
 	 }
-	foundSlots	=	malloc(20	*	sizeof(struct	slot	));	
+	foundSlots	=	calloc(20, sizeof(struct slot));	
 	if(currSlot!=	NULL){	
 	findSlots(reqDist,	0,	currSlot,	foundSlots,	&count,	explored);	
-	for(int i=0;	i<count;	i++){	
+	for(int i=0;	i<count;	i++)
+	{	
 	 	printf("(%d,	%d)->	",foundSlots[i].row,	foundSlots[i].column);	
-	 	}
-	if(AttackedPlayer->strength <=70)
-	{
-		AttackedPlayer->life_points = AttackedPlayer->life_points - (0.5 * AttackedPlayer->strength);
-		printf("1. Attacked Player Life points = %d", AttackedPlayer->life_points);
 	}
-	else if(AttackedPlayer->strength > 70)
+	
+	int i, decision;
+	printf("Players available to attack:\n");
+	for(i = 0; i < 20; i++)
 	{
-		AttackerPlayer->life_points = AttackerPlayer->life_points - (0.3 * AttackedPlayer->strength);
-		printf("2. Attcker Player Life Points = %d", AttackerPlayer->life_points);
+		if(!foundSlots[i]->playerHere)
+//Finished Here
+		while(Curr)
+	{
+		prev = Curr;
+		Curr = Curr.nextplayer;
 	}
+	prev.nextplayer = player;
+			printf("%d %s\n", i, player->name);
+	}
+	printf("Which player would you like to attack?: \n");
+	scanf("%d", &decision);
+	if(decision > 1 || decision < 0)
+	{
+		printf("This option is not valid.\n");
+		return choosePlayer_NearAtt(player[]);
+	}
+	if(player[decision]->dead)
+	{
+		printf("This player is dead.\n");
+		return choosePlayer_NearAtt(player[]);
+	}
+	NearAttack(CurrPlayer, player[decision]);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct player player[])
 {
