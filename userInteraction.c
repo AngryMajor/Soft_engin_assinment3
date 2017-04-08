@@ -21,7 +21,7 @@ struct slot *getDesiredElement(int * row, int * col){
 		// size of the board
 		do {
 			printf("Row: ");
-			scanf("%d", row);
+			scanf("%d", &row);
 			printf("%d\n", *row);
 			if(row < 0 && *row >= boardSize)
 				printf("Error: Incorrect row dimension\n");
@@ -32,7 +32,7 @@ struct slot *getDesiredElement(int * row, int * col){
 		// size of the board
 		do {
 			printf("Column: ");
-			scanf("%d", col);
+			scanf("%d", &col);
 			printf("%d\n", *col);
 			if(*col < 0 && *col >= boardSize)
 				printf("Error: Incorrect column dimension\n");
@@ -49,7 +49,7 @@ int getPlayerAction(struct player Player){
 	
 	int option;//stor input
 	//check the curent player can do magic
-	int canMagic = 0;
+	int canMagic = 1;
 	if(Player.magic_skills + Player.smartness > 150) canMagic = 1;
 	
 	//get action from user
