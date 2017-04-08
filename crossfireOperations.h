@@ -18,6 +18,7 @@
 
 struct player
 {
+	int dead;
 	int type;
 	char name[32];
 	int life_points;
@@ -38,9 +39,11 @@ void wizard(struct player *Current_Player); //Function prototype
 
 static int Joined_Players = 0;
 
+void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer);
+void choosePlayer_MagAtt(int num_ofplayers, struct player CurrPlayer, struct player player[]);
+
 void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
-void MagicAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 
 /*
  * Definition of boolean types
