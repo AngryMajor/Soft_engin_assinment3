@@ -100,3 +100,15 @@ void wizard(struct player *Current_Player)
 	Current_Player->life_points = 100;  //Set life points to 100
 	Current_Player->dead = 0;  //This player is not dead
 }
+
+
+int AllPlayersNotDead(struct player players[],int choice){
+	int i;
+	for(i = 0;!players[i].dead && i<choice;i++);
+	i++;
+	for(;!players[i].dead && i<choice;i++);
+	
+	if(i<=choice) return 0;
+	return 1;
+	
+}//end of all players not dead
