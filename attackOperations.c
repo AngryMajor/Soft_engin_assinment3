@@ -1,5 +1,31 @@
 #include "crossfireOperations.h"
 
+void choosePlayer_NearAtt(struct player CurrPlayer, struct player player[])
+{
+	// Search for players in the same slot, or players in slots adjacent to current player.
+	
+	int i, decision;
+	printf("Players available to attack:\n");
+	for(i = 0l player[i]; i++)
+	{
+		if(!player[i]->dead)
+			printf("%d %s\n", i, player->name);
+	}
+	printf("Which player would you like to attack?: \n");
+	scanf("%d", &decision);
+	if(decision > 1 || decision < 0)
+	{
+		printf("This option is not valid.\n");
+		return choosePlayer_NearAtt(player[]);
+	}
+	if(player[decision]->dead)
+	{
+		printf("This player is dead.\n");
+		return choosePlayer_NearAtt(player[]);
+	}
+	NearAttack(CurrPlayer, player[decision]);
+}
+
 void choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct player player[])
 {
 	int i,decision;
