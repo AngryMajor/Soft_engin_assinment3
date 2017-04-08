@@ -54,7 +54,7 @@ int getPlayerAction(struct player Player){
 	
 	//get action from user
 	printf("What would you like to do?\n0: quit\n1: move\n2: attack");
-	scanf("%d",option);
+	scanf("%d",&option);
 	
 	//check option is valid, make the user go again if its not
 	if(option<0 ||option >2){
@@ -67,7 +67,7 @@ int getPlayerAction(struct player Player){
 		printf("please input what kind of attack youd like to do?\n0:near\n1:far\n");
 		if(canMagic) printf("2:magic\n");
 		int option2;
-		scanf("%d",option2);
+		scanf("%d",&option2);
 		
 		//check option is valid
 		if(option2<0 ||option2 >(1+canMagic)){
