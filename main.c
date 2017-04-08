@@ -30,27 +30,34 @@ int main()
 	PlacePlayer(players[0]);
 	
 	//round loop
+	int loop = 1;
+	while(loop){
 		for(int i=0;i<choice;i++)
 		{ //Start of player turn loop
-			int action = getPlayerAction(players[0]);
-			switch (action){
-				case 0: //Quit
-					break;
-				case 1: //Move
-					break;
-				case 2: //Near Attack
+			if(!players[i].dead){
+				printf("\nit is player %d's turn\n\n",i);
+				int action = getPlayerAction(players[0]);
+				switch (action){
+					case 0: //Quit
+						players[i].dead = 1;
+						break;
+					case 1: //Move
+						break;
+					case 2: //Near Attack
+						
+						break;
+					case 3: //Distant Attack
+						
+						break;
+					case 4: //Magic Attack
+						choosePlayer_MagAtt(choice,players[i], players);
+						break;
 					
-					break;
-				case 3: //Distant Attack
-					
-					break;
-				case 4: //Magic Attack
-					choosePlayer_MagAtt(choice,players[i], players);
-					break;
-				
-			} //End of switch action
+				} //End of switch action
+			}
 		} //End of loop for player's turn
 		//Check if the game terminates
-
+		loop = AllPlayersNotDead(players, choice);
+	}
 return 0;
 }
