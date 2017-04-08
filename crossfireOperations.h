@@ -41,9 +41,10 @@ int AllPlayersNotDead(struct player players[],int choice);
 static int Joined_Players = 0;
 
 void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer);
-void choosePlayer_MagAtt(int num_ofplayers, struct player CurrPlayer, struct player player[]);
-
 void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+void choosePlayer_MagAtt(int num_ofplayers, struct player CurrPlayer, struct player player[]);
+void choosePlayer_NearAtt(struct player CurrPlayer, struct player player[]);
+
 void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
 
 /*
