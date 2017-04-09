@@ -4,7 +4,6 @@
 int main()
 {
 
-	int row, columm;
 	createBoard(); //Creates the board
 	
 	struct player players[numberofplayers];
