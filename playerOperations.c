@@ -101,6 +101,47 @@ void wizard(struct player *Current_Player)
 	Current_Player->dead = 0;  //This player is not dead
 }
 
+int move(struct player *player){
+
+	printf("were would you like to move\n");
+	printf("0:don't move\n");
+	printf("1:up to ");
+	PrintMapSlotType(player->location->up);
+	printf("\n2:right to ");
+	PrintMapSlotType(player->location->right);
+	printf("\n3:down to ");
+	PrintMapSlotType(player->location->down);
+	printf("\n4:left to ");
+	PrintMapSlotType(player->location->left);
+	printf("\n");
+	
+	int input;
+	scanf("%d",&input);
+	if(input<0||input>4){
+		printf("input invalid");
+		return 1;
+	}
+	
+	switch(input){
+		case 0:
+			return 1;
+			break;
+		case 1:
+			player->location = player->location->up;
+			break;
+		case 2:
+			player->location = player->location->right;
+			break;
+		case 3:
+			player->location = player->location->down;
+			break;
+		case 4:
+			player->location = player->location->left;
+			break;
+	};
+	
+	return 0;
+}//end of move 
 
 int AllPlayersNotDead(struct player players[],int choice){
 	int i;
