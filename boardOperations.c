@@ -160,19 +160,6 @@ void PlacePlayer(struct player player)
 		else a = reachDesiredElement(row,column,upLeft);
 	 }
 	player.location = a;
-	if(a.playersHere)
-	{
-		a.playersHere = &player;
-		return;
-	}
-	struct slot *Curr = a.playersHere;
-	struct slot *prev;
-	while(Curr)
-	{
-		prev = Curr;
-		Curr = Curr.nextplayer;
-	}
-	prev.nextplayer = player;
 }
 
 struct slot *reachDesiredElement(int row, int column, const struct slot * initialSlot){
@@ -231,11 +218,10 @@ returns nothing but prints to screen
 */
 
 void PrintMapSlotType(struct slot *toPrint){
-	
+		
 	char *SlotNames[] = {"Flat Ground","Hill","City"};
 	
 	printf("%s",SlotNames[(*toPrint).thisSlotType]);
 	
 }  //End of printmapslot
-
 
