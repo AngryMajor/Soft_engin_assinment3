@@ -31,7 +31,7 @@ struct player
 };
 
 void PlacePlayer(struct player player);
-void option();  //Function prototype
+void creatPlayers(struct player player[], int choice);  //Function prototype
 void elf(struct player *Current_Player);  //Function prototype
 void human(struct player *Current_Player);   //Function prototype
 void ogre(struct player *Current_Player);   //Function prototype
@@ -40,11 +40,18 @@ void wizard(struct player *Current_Player); //Function prototype
 static int Joined_Players = 0;
 
 void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer);
-void choosePlayer_MagAtt(int num_ofplayers, struct player CurrPlayer, struct player player[]);
+int choosePlayer_MagAtt(int num_ofplayers, struct player CurrPlayer, struct player player[]);
 
 void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
-void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int numofplayers);
 
+void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer);
+void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int count);
+int choosePlayer_DistantAtt(struct player player,struct player players[]);
+
+int AllPlayersNotDead(struct player players[],int choice);
+
+int move(struct player *player);
 /*
  * Definition of boolean types
  * This avoids using <stdbool.h>
@@ -52,7 +59,6 @@ void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 typedef int bool;
 enum { false, true };
 
-struct playersHere{struct player *player, struct playersHere *nextPlayer};
 /*
  * The slot template
  */
@@ -70,7 +76,7 @@ struct slot{
 	struct slot *up;
 	// adjacent down slot
 	struct slot *down;
-	struct playersHere playersHere;
+	
 	int thisSlotType;//holds the slot type of this slot
 	
 }slot;
