@@ -130,7 +130,7 @@ void createBoard(){
  * 	initialSlot: the slot from which the slot search should start
  */
 
-void PlacePlayer(struct player player)
+void PlacePlayer(struct player *player)
 {
 	int column, row;
 	column = (rand() % 7); 
