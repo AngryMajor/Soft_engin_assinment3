@@ -52,9 +52,12 @@ int choosePlayer_DistantAtt(struct player player,struct player players[]){
 	
 	int count = 0;
 	
-	for(int i=0;i<6;i++){
-		for(int j=0;j<37;j++){
-			if(players[i].location == InRange[j]){
+	for(int i=0;i<6;i++)
+	{
+		for(int j=0;j<37;j++)
+		{
+			if(players[i].location == InRange[j])
+			{
 				targets[count++] = &players[i];
 				break;
 			}
@@ -64,8 +67,9 @@ int choosePlayer_DistantAtt(struct player player,struct player players[]){
 	count--;
 	
 	int input;
-	printf("who would you like to attack\n");
-	for(int i=0;i<count;i++) printf("%d %s\n",i,players[i].name);
+	printf("Who would you like to attack\n");
+	for(int i=0;i<count;i++) 
+		printf("%d %s\n",i,players[i].name);
 	scanf("%d",&input);
 	
 	if(input<0 ||input>count){
@@ -73,7 +77,7 @@ int choosePlayer_DistantAtt(struct player player,struct player players[]){
 		return 1;
 	}
 	
-	DistantAttack(&player,&players[input]);
+	DistantAttack(&player,&players[input]);  //Attack
 	
 	return 0;
 	
