@@ -127,17 +127,24 @@ int move(struct player *player){
 			return 1;
 			break;
 		case 1:
-		
+			ExitSlot(player, player->location->thisSlotType);
 			player->location = player->location->up;
+			EnterSlot(player, player->location->up->thisSlotType);
 			break;
 		case 2:
+			ExitSlot(player, player->location->thisSlotType);
 			player->location = player->location->right;
+			EnterSlot(player, player->location->up->thisSlotType);
 			break;
 		case 3:
+			ExitSlot(player, player->location->thisSlotType);
 			player->location = player->location->down;
+			EnterSlot(player, player->location->up->thisSlotType);
 			break;
 		case 4:
+			ExitSlot(player, player->location->thisSlotType);
 			player->location = player->location->left;
+			EnterSlot(player, player->location->up->thisSlotType);
 			break;
 	};
 	
