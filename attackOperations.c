@@ -153,7 +153,6 @@ int choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct playe
 	return 0;
 }
 
-
 void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
 {
 	printf("Zap\n");
@@ -162,10 +161,8 @@ void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
 		AttackedPlayer->life_points = AttackedPlayer->life_points - ((0.5 * AttackerPlayer.magic_skills) + (0.2 * AttackerPlayer.smartness));
 	}
 	
-	IsDead(*AttackedPlayer);
+	IsDead(AttackedPlayer);
 }
-
-
 
 void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 {
@@ -179,8 +176,7 @@ void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 		AttackedPlayer->life_points = AttackedPlayer->life_points - (0.3 * AttackerPlayer->strength);
 	}
 	
-	IsDead(*AttackedPlayer);
-	
+	IsDead(AttackedPlayer);	
 }
 
 void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
@@ -197,11 +193,10 @@ void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 		printf("2. Attcker Player Life Points = %d", AttackerPlayer->life_points);
 	}
 	
-	IsDead(*AttackedPlayer);
-	IsDead(*AttackerPlayer);
+	IsDead(AttackedPlayer);
+	IsDead(AttackerPlayer);
 	
 }
-
 
 void IsDead(struct player *player){
 	
