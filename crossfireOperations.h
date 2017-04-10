@@ -30,6 +30,8 @@ struct player
 	struct slot *location;
 };
 
+void IsDead(struct player *player);
+
 void PlacePlayer(struct player *player);
 void creatPlayers(struct player player[], int choice);  //Function prototype
 void elf(struct player *Current_Player);  //Function prototype
