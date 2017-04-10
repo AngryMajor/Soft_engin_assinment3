@@ -41,7 +41,7 @@ int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int n
 	
 	return 0;
 	
-}//endo of choose player near attack
+} //End of choose player near attack
 
 
 int choosePlayer_DistantAtt(struct player player,struct player players[]){
