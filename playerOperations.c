@@ -105,14 +105,22 @@ int move(struct player *player){
 
 	printf("were would you like to move\n");
 	printf("0:don't move\n");
-	printf("1:up to ");
-	PrintMapSlotType(player->location->up);
-	printf("\n2:right to ");
-	PrintMapSlotType(player->location->right);
-	printf("\n3:down to ");
-	PrintMapSlotType(player->location->down);
-	printf("\n4:left to ");
-	PrintMapSlotType(player->location->left);
+	if(player->location->up != NULL){
+		printf("1:up to ");
+		PrintMapSlotType(player->location->up);
+	}
+	if(player->location->right != NULL){
+		printf("\n2:right to ");
+		PrintMapSlotType(player->location->right);
+	}
+	if(player->location->down != NULL){
+		printf("\n3:down to ");
+		PrintMapSlotType(player->location->down);
+	}
+	if(player->location->left != NULL){
+		printf("\n4:left to ");
+		PrintMapSlotType(player->location->left);
+	}
 	printf("\n");
 	
 	int input;
