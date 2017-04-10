@@ -26,8 +26,9 @@ int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int n
 	//Get the players choice from them
 	int input;
 	printf("possible targets are:\n");
-	for(int i=0;i<count;i++) printf("%d %s\n",i,(*targets[i]).name);
-	printf("input the corasponding number");
+	for(int i=0;i<count;i++) 
+		printf("%d %s\n",i,(*targets[i]).name);
+	printf("Input the corasponding number");
 	scanf("%d",&input);
 	
 	//check their choice is valid
