@@ -25,8 +25,6 @@ int main()
 		PlacePlayer(&players[i]);
 	}
 	
-	for(int i=0;i<numberofplayers;i++) printf("(%d,%d)\n",players[i].location->row,players[i].location->column);
-	
 	int turnFail;//if turn fail = 1 the player can repeat their turn
 	int loop = 1;
 	while(loop){
