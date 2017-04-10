@@ -30,9 +30,7 @@ struct player
 	struct slot *location;
 };
 
-void IsDead(struct player *player);
-
-void PlacePlayer(struct player *player);
+void PlacePlayer(struct player*player);
 void creatPlayers(struct player player[], int choice);  //Function prototype
 void elf(struct player *Current_Player);  //Function prototype
 void human(struct player *Current_Player);   //Function prototype
@@ -52,6 +50,11 @@ void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int coun
 int choosePlayer_DistantAtt(struct player player,struct player players[]);
 
 int AllPlayersNotDead(struct player players[],int choice);
+
+void IsDead(struct player *player);
+
+void EnterSlot(struct player *Player, int SlotType);
+void ExitSlot(struct player *Player, int SlotType);
 
 int move(struct player *player);
 /*
@@ -97,7 +100,7 @@ const struct slot *downLeft;
  */
 
  /*
-Function that gets the players action off the user
+funciton that gets the players action off the user
 takes a player as input
 returns an int of what they want to do
 0=quit 1=move 2=near attack 3=far attack 4=magic attack
