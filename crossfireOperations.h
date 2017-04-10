@@ -30,7 +30,7 @@ struct player
 	struct slot *location;
 };
 
-void PlacePlayer(struct player player);
+void PlacePlayer(struct player *player);
 void creatPlayers(struct player player[], int choice);  //Function prototype
 void elf(struct player *Current_Player);  //Function prototype
 void human(struct player *Current_Player);   //Function prototype
