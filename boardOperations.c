@@ -159,7 +159,10 @@ void PlacePlayer(struct player *player)
 		// * which points to slot at position (0, 0)*/
 		else a = reachDesiredElement(row,column,upLeft);
 	 }
-	player.location = a;
+	 
+	player->location = a;
+	EnterSlot(player, player->location->thisSlotType);	 
+	
 }
 
 struct slot *reachDesiredElement(int row, int column, const struct slot * initialSlot){
