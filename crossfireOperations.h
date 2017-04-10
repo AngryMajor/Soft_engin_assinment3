@@ -95,7 +95,7 @@ const struct slot *downLeft;
  */
 
  /*
-funciton that gets the players action off the user
+Function that gets the players action off the user
 takes a player as input
 returns an int of what they want to do
 0=quit 1=move 2=near attack 3=far attack 4=magic attack
