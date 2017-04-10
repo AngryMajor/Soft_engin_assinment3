@@ -22,7 +22,7 @@ int main()
 	creatPlayers(players,numberofplayers);
 	
 	for(int i=0;i<numberofplayers;i++){
-		PlacePlayer(players[i]);
+		PlacePlayer(&players[i]);
 	}
 	
 	int turnFail;//if turn fail = 1 the player can repeat their turn
