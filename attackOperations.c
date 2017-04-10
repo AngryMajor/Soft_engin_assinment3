@@ -1,10 +1,10 @@
 #include "crossfireOperations.h"
 
-int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int numofplayers)
-{		
-	struct player *targets[6];  //List of the player's targets
+int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int numofplayers){
+		
+	struct player *targets[6];//list of the players targets
 	
-	//Put all the slot pointers that the player can attack in an array so that they can be checked
+	//put all the slot pointers that the player can attack in an array so they can be checked
 	struct slot *locations[5];
 	locations[0] = CurrPlayer->location;
 	locations[1] = CurrPlayer->location->up;
@@ -12,50 +12,46 @@ int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int n
 	locations[3] = CurrPlayer->location->right;
 	locations[4] = CurrPlayer->location->left;
 	
-	int count = 0; //Number of other players found in attackable slots
+	int count = 0;//number of other players found in attackable slots
 	
-	//Compare the attackable slot pointers to the list of players location pointers to see who is in a slot that the player can attack
-	for(int i=0;i<numofplayers;i++)
-	{
-		for(int j=0;j<5;j++)
-		{
+	//compare the attackable slot pointers to the list of players location pointers to see who is in a slot the player can attack
+	for(int i=0;i<numofplayers;i++){
+		for(int j=0;j<5;j++){
 			if(players[i].location == locations[j]) targets[count++] = &players[i];
 		}
 	}
 	
-	//Get the players choice from them
+	//get the players choice from them
 	int input;
-	printf("possible targets are:\n");
-	for(int i=0;i<count;i++) 
-		printf("%d %s\n",i,(*targets[i]).name);
-	printf("Input the corresponding number: ");
+	printf("posable targets are:\n");
+	for(int i=0;i<count;i++) printf("%d %s\n",i,(*targets[i]).name);
+	printf("input the corasponding number");
 	scanf("%d",&input);
 	
-	//Check their choice is valid
+	//check their choice is valid
 	if(input<0 || input>count){
-		printf("Invalid input");
+		printf("invalid input");
 		return 1;
 	}
 	
-	NearAttack(CurrPlayer,targets[input]); //Attack a player
+	NearAttack(CurrPlayer,targets[input]);//attack
 	
 	return 0;
-} //End of choose player near attack
+	
+}//endo of choose player near attack
 
-int choosePlayer_DistantAtt(struct player player,struct player players[])
-{	
+
+int choosePlayer_DistantAtt(struct player player,struct player players[]){
+	
 	struct slot *InRange[37];
 	struct player *targets[6];
 	checkRange(player.location,4,InRange,0);
 	
 	int count = 0;
 	
-	for(int i=0;i<6;i++)
-	{
-		for(int j=0;j<37;j++)
-		{
-			if(players[i].location == InRange[j])
-			{
+	for(int i=0;i<6;i++){
+		for(int j=0;j<37;j++){
+			if(players[i].location == InRange[j]){
 				targets[count++] = &players[i];
 				break;
 			}
@@ -65,9 +61,8 @@ int choosePlayer_DistantAtt(struct player player,struct player players[])
 	count--;
 	
 	int input;
-	printf("Who would you like to attack\n");
-	for(int i=0;i<count;i++) 
-		printf("%d %s\n",i,players[i].name);
+	printf("who would you like to attack\n");
+	for(int i=0;i<count;i++) printf("%d %s\n",i,players[i].name);
 	scanf("%d",&input);
 	
 	if(input<0 ||input>count){
@@ -75,36 +70,39 @@ int choosePlayer_DistantAtt(struct player player,struct player players[])
 		return 1;
 	}
 	
-	DistantAttack(&player,&players[input]);  //Attack
+	DistantAttack(&player,&players[input]);
 	
 	return 0;
 	
-}  //End of choose player distant attack
+}//end of choose player distant attack
 
-// Finds all the slots that are within a certain range of a particular slot takes in a slot to start from and the desired range
-// It returns with pass by reference, an array of the slots in range
-// The last argument should always be set to 0 when inishalising this funcion
+/*
+finds all the slots that are within a certen range of a proticular slot
+takes in a slot to start from and the desired range
+it returns with pass by refrence an array of the slots in range
+the last argument should always be set to 0 when inishalising this funciont
+*/
 
-void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int count)
-{	
-	if(!range){  //If range is 0
+void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int count){
+	
+	if(!range){//if range is 0
 		
-		//Check if slot is already in array, if it is return
+		//check if slot is already in array, if it is return
 		for(int i;i<count;i++){
 			if(currSlot == InRange[i]) return;
 		}
-		//Log this slot
+		//log this slot
 		InRange[count++] = currSlot;
 		
 		return;
 	}
-	if(range = 1){  //When range is almost to the end required to get all slots within range
+	if(range = 1){//when range is almost to the end required to get all slots within range
 		
-		//Check if slot is already in array, if it is return
+		//check if slot is already in array, if it is return
 		for(int i;i<count;i++){
 			if(currSlot == InRange[i]) return;
 		}
-		//Log this slot
+		//log this slot
 		InRange[count++] = currSlot;
 		
 		if(currSlot->up	!=	NULL)	
@@ -118,7 +116,7 @@ void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int coun
 		
 	}
 	
-	//If range is not 1 or 0
+	//if range is not 1 or 0
 	if(currSlot->up	!=	NULL)	
 	 	checkRange(currSlot->up,range-1,InRange,count);
 	if(currSlot->right	!=	NULL)	
@@ -127,7 +125,8 @@ void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int coun
 	 	checkRange(currSlot->left,range-1,InRange,count);
 	if(currSlot->down !=	NULL)	
 		checkRange(currSlot->down,range-1,InRange,count);
-}  //End of check range
+	
+}//end of check range
 
 int choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct player player[])
 {
@@ -154,6 +153,7 @@ int choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct playe
 	return 0;
 }
 
+
 void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
 {
 	printf("Zap\n");
@@ -161,11 +161,15 @@ void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
 	{
 		AttackedPlayer->life_points = AttackedPlayer->life_points - ((0.5 * AttackerPlayer.magic_skills) + (0.2 * AttackerPlayer.smartness));
 	}
+	
+	IsDead(*AttackedPlayer);
 }
+
+
 
 void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 {
-	printf("Twang\n");
+	printf("twang\n");
 	if(AttackedPlayer->dexterity >= AttackerPlayer->dexterity)
 	{
 		AttackedPlayer->life_points = AttackedPlayer->life_points;
@@ -174,6 +178,9 @@ void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 	{
 		AttackedPlayer->life_points = AttackedPlayer->life_points - (0.3 * AttackerPlayer->strength);
 	}
+	
+	IsDead(*AttackedPlayer);
+	
 }
 
 void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
@@ -189,4 +196,18 @@ void NearAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 		AttackerPlayer->life_points = AttackerPlayer->life_points - (0.3 * AttackedPlayer->strength);
 		printf("2. Attcker Player Life Points = %d", AttackerPlayer->life_points);
 	}
+	
+	IsDead(*AttackedPlayer);
+	IsDead(*AttackerPlayer);
+	
+}
+
+
+void IsDead(struct player *player){
+	
+	if(player->life_points<1){
+		player->dead = 1;
+		printf("%s has died",player->name);
+	}
+	
 }
