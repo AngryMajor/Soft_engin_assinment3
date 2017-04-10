@@ -1,7 +1,7 @@
 #include "crossfireOperations.h"
 
-int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int numofplayers){
-		
+int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int numofplayers)
+{		
 	struct player *targets[6];  //List of the player's targets
 	
 	//Put all the slot pointers that the player can attack in an array so that they can be checked
@@ -40,12 +40,10 @@ int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int n
 	NearAttack(CurrPlayer,targets[input]); //Attack a player
 	
 	return 0;
-	
 } //End of choose player near attack
 
-
-int choosePlayer_DistantAtt(struct player player,struct player players[]){
-	
+int choosePlayer_DistantAtt(struct player player,struct player players[])
+{	
 	struct slot *InRange[37];
 	struct player *targets[6];
 	checkRange(player.location,4,InRange,0);
@@ -83,13 +81,12 @@ int choosePlayer_DistantAtt(struct player player,struct player players[]){
 	
 }  //End of choose player distant attack
 
-
 // Finds all the slots that are within a certain range of a particular slot takes in a slot to start from and the desired range
 // It returns with pass by reference, an array of the slots in range
 // The last argument should always be set to 0 when inishalising this funcion
 
-void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int count){
-	
+void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int count)
+{	
 	if(!range){  //If range is 0
 		
 		//Check if slot is already in array, if it is return
@@ -130,7 +127,6 @@ void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int coun
 	 	checkRange(currSlot->left,range-1,InRange,count);
 	if(currSlot->down !=	NULL)	
 		checkRange(currSlot->down,range-1,InRange,count);
-	
 }  //End of check range
 
 int choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct player player[])
@@ -158,7 +154,6 @@ int choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct playe
 	return 0;
 }
 
-
 void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
 {
 	printf("Zap\n");
@@ -168,11 +163,9 @@ void MagicAttack(struct player AttackerPlayer, struct player *AttackedPlayer)
 	}
 }
 
-
-
 void DistantAttack(struct player *AttackerPlayer, struct player *AttackedPlayer)
 {
-	printf("twang\n");
+	printf("Twang\n");
 	if(AttackedPlayer->dexterity >= AttackerPlayer->dexterity)
 	{
 		AttackedPlayer->life_points = AttackedPlayer->life_points;
