@@ -44,15 +44,21 @@ int main()
 					case 1: //Move
 						turnFail = move(&players[i]);
 						break;
-					case 2: //Near Attack
+					case 2:
+						turnFail = 1;
+						break;
+					case 3: //Near Attack
 						turnFail = choosePlayer_NearAtt(&players[i],players, numberofplayers);
 						break;
-					case 3: //Distant Attack
+					case 4: //Distant Attack
 						turnFail = choosePlayer_DistantAtt(players[i],players);
 						break;
-					case 4: //Magic Attack
+					case 5: //Magic Attack
 						turnFail = choosePlayer_MagAtt(numberofplayers,players[i],players);
 						break;
+					default:
+						printf("that is not an option\n");
+						turnFail = 1;
 				
 				} //End of switch action
 			}while(turnFail);
