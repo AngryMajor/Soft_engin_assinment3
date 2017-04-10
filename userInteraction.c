@@ -49,7 +49,7 @@ int getPlayerAction(struct player Player){
 	
 	int option;//stor input
 	//check the curent player can do magic
-	int canMagic = 1;
+	int canMagic = 0;
 	if(Player.magic_skills + Player.smartness > 150) canMagic = 1;
 	
 	//get action from user
