@@ -31,7 +31,7 @@ int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int n
 	printf("Input the corresponding number: ");
 	scanf("%d",&input);
 	
-	//check their choice is valid
+	//Check their choice is valid
 	if(input<0 || input>count){
 		printf("invalid input");
 		return 1;
