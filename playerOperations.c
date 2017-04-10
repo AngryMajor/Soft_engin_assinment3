@@ -10,7 +10,7 @@ void creatPlayers(struct player player[], int choice)
 		printf("1. Elf.\n2. Human.\n3. Ogre.\n4. Wizard\n");
 		
 		do{
-			printf("Please enter the number corresponding to the type for this player: ");
+			printf("Please enter the number corresponding to the type for this player: \n");
 			scanf("%d", &player[i].type);
 			switch(player[i].type)
 			{
@@ -68,7 +68,7 @@ void human(struct player *Current_Player)
 	Current_Player->dexterity = (rand() % 101); //Pick a random number from 0 and 100
 	Current_Player->luck = (rand() % 101);  //Pick a random number from 0 and 1-0
 	sum = Current_Player->magic_skills + Current_Player->smartness + Current_Player->strength + Current_Player->dexterity + Current_Player->luck;  //Assign total to sum
-	sum <=300;
+	sum <= 300;
 	Current_Player->dead = 0;  //This player is not dead
 }
 
@@ -103,26 +103,28 @@ void wizard(struct player *Current_Player)
 
 int move(struct player *player){
 
-	printf("were would you like to move\n");
-	printf("0:don't move\n");
-	printf("1:up to ");
+	printf("Where would you like to move?\n");
+	printf("0: Don't move\n");
+	printf("1: up to\n");
 	PrintMapSlotType(player->location->up);
-	printf("\n2:right to ");
+	printf("2: Right to\n");
 	PrintMapSlotType(player->location->right);
-	printf("\n3:down to ");
+	printf("3: Down to\n");
 	PrintMapSlotType(player->location->down);
-	printf("\n4:left to ");
+	printf("4: Left to");
 	PrintMapSlotType(player->location->left);
 	printf("\n");
 	
 	int input;
 	scanf("%d",&input);
-	if(input<0||input>4){
-		printf("input invalid");
+	if(input<0||input>4)
+	{
+		printf("This input is invalid\n");
 		return 1;
 	}
 	
-	switch(input){
+	switch(input)
+	{
 		case 0:
 			return 1;
 			break;
@@ -141,9 +143,10 @@ int move(struct player *player){
 	};
 	
 	return 0;
-}//end of move 
+}  //End of move 
 
-int AllPlayersNotDead(struct player players[],int choice){
+int AllPlayersNotDead(struct player players[],int choice)
+{
 	int i;
 	for(i = 0;!players[i].dead && i<choice;i++);
 	i++;
@@ -152,4 +155,4 @@ int AllPlayersNotDead(struct player players[],int choice){
 	if(i<=choice) return 0;
 	return 1;
 	
-}//end of all players not dead
+}  //End of all players not dead
