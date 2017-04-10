@@ -37,6 +37,7 @@ int main()
 				switch (action){
 					case 0: //Quit
 						players[i].dead = 1;
+						turnFail = 0;
 						break;
 					case 1: //Move
 						turnFail = move(&players[i]);
