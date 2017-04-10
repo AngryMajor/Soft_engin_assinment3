@@ -17,10 +17,10 @@ Issues
 	// start turn loop
 	// give players options on their turn(need to be brought over from other assingment)
 * print players and their locations option
-/ players can attack near(neads bringing over and adapting)
-/ players can attack distant - Attack functions done, find players needs to be done.
-	// plyaers can attack magic
-/ players can move(neads beinging over and adapting)
-	//players can quite
+	//players can attack near(neads bringing over and adapting)
+	//players can attack distant - Attack functions done, find players needs to be done.
+	//plyaers can attack magic
+	// players can move(neads beinging over and adapting)
+	//players can quit
 players can die
-	//game can and dose terminate
+	//game can and doesterminate
