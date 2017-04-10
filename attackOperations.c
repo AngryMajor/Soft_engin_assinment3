@@ -37,7 +37,7 @@ int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int n
 		return 1;
 	}
 	
-	NearAttack(CurrPlayer,targets[input]);//attack
+	NearAttack(CurrPlayer,targets[input]); //Attack a player
 	
 	return 0;
 	
