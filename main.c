@@ -5,15 +5,17 @@ int main()
 
 	createBoard(); //Creates the board
 	
-	
 	int numberofplayers;
-	printf("how many players would like to play?");
+	printf("Please enter how many players would like to play: \n");
 	scanf("%d",&numberofplayers);
-	if(numberofplayers<2){
-		printf("must be at least 2 players");
+	if(numberofplayers<2)
+	{
+		printf("There must be at least 2 players\n");
 		return main();
-	}else if(numberofplayers>6){
-		printf("there can not be more then 6 players");
+	}
+	else if(numberofplayers>6)
+	{
+		printf("There can not be more then 6 players\n");
 		return main();
 	}
 	
@@ -21,20 +23,23 @@ int main()
 	
 	creatPlayers(players,numberofplayers);
 	
-	for(int i=0;i<numberofplayers;i++){
+	for(int i=0;i<numberofplayers;i++)
+	{
 		PlacePlayer(&players[i]);
 	}
 	
-	int turnFail;//if turn fail = 1 the player can repeat their turn
+	int turnFail;  //If turn fail = 1 the player can repeat their turn
 	int loop = 1;
-	while(loop){
+	while(loop)
+	{
 		for(int i=0;i<numberofplayers;i++)
 			{ //Start of player turn loop
 			do{
-				printf("\nplayer %d, its your turn\n\n",i);
+				printf("\nPlayer %d, its your turn\n",i);
 			
 				int action = getPlayerAction(players[0]);
-				switch (action){
+				switch (action)
+				{
 					case 0: //Quit
 						players[i].dead = 1;
 						turnFail = 0;
