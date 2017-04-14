@@ -7,13 +7,13 @@ int main()
 	
 	
 	int numberofplayers;
-	printf("how many players would like to play?");
+	printf("How many players would like to play?");
 	scanf("%d",&numberofplayers);
 	if(numberofplayers<2){
-		printf("must be at least 2 players");
+		printf("There must be at least 2 players");
 		return main();
 	}else if(numberofplayers>6){
-		printf("there can not be more then 6 players");
+		printf("There can not be more then 6 players");
 		return main();
 	}
 	
@@ -25,13 +25,13 @@ int main()
 		PlacePlayer(&players[i]);
 	}
 	
-	int turnFail;//if turn fail = 1 the player can repeat their turn
+	int turnFail;  //If turn fail = 1 the player can repeat their turn
 	int loop = 1;
 	while(loop){
 		for(int i=0;i<numberofplayers;i++)
 			{ //Start of player turn loop
 			do{
-				printf("\nplayer %d, its your turn\n\n",i);
+				printf("\nPlayer %d, its your turn\n\n",i);
 			
 				int action = getPlayerAction(players[0]);
 				switch (action){
@@ -55,7 +55,7 @@ int main()
 						turnFail = choosePlayer_MagAtt(numberofplayers,players[i],players);
 						break;
 					default:
-						printf("that is not an option\n");
+						printf("That is not an option\n");
 						turnFail = 1;
 				
 				} //End of switch action
