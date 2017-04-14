@@ -68,27 +68,27 @@ enum { false, true };
  * The slot template
  */
 struct slot{
-	//row number
+	//Row number
 	int row;
-	//column number
+	//Column number
 	int column;
 
-	// adjacent left slot
+	//Adjacent left slot
 	struct slot *left;
-	// adjacent right slot
+	//Adjacent right slot
 	struct slot *right;
-	// adjacent up slot
+	//Adjacent up slot
 	struct slot *up;
-	// adjacent down slot
+	//Adjacent down slot
 	struct slot *down;
 	
-	int thisSlotType;//holds the slot type of this slot
+	int thisSlotType;  //Holds the slot type of this slot
 	
 }slot;
 
 
 /*
-global consts
+Global consts
 */
 const struct slot *upRight;
 const struct slot *upLeft;
@@ -100,7 +100,7 @@ const struct slot *downLeft;
  */
 
  /*
-funciton that gets the players action off the user
+function that gets the players action off the user
 takes a player as input
 returns an int of what they want to do
 0=quit 1=move 2=near attack 3=far attack 4=magic attack
@@ -109,11 +109,10 @@ int getPlayerAction(struct player Player);
 
 /*
  * Functions getBoardSize and getDesiredElement
- * manage the interaction with the users
+ * Manage the interaction with the users
 */
 
-//Asks the user to insert the row and the column of the element
-//she wants to find given a board of size equal to maxsize
+//Asks the user to insert the row and the column of the element she wants to find given a board of size equal to maxsize
 struct slot *getDesiredElement( int * row, int * col);
 
 /*
