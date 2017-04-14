@@ -4,7 +4,7 @@ int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int n
 		
 	struct player *targets[6];//list of the players targets
 	
-	//put all the slot pointers that the player can attack in an array so they can be checked
+	//Put all the slot pointers that the player can attack in an array so they can be checked
 	struct slot *locations[5];
 	locations[0] = CurrPlayer->location;
 	locations[1] = CurrPlayer->location->up;
@@ -12,33 +12,33 @@ int choosePlayer_NearAtt(struct player *CurrPlayer,struct player players[],int n
 	locations[3] = CurrPlayer->location->right;
 	locations[4] = CurrPlayer->location->left;
 	
-	int count = 0;//number of other players found in attackable slots
+	int count = 0;  //Number of other players found in attackable slots
 	
-	//compare the attackable slot pointers to the list of players location pointers to see who is in a slot the player can attack
+	//Compare the attackable slot pointers to the list of players location pointers to see who is in a slot the player can attack
 	for(int i=0;i<numofplayers;i++){
 		for(int j=0;j<5;j++){
 			if(players[i].location == locations[j]) targets[count++] = &players[i];
 		}
 	}
 	
-	//get the players choice from them
+	//Get the players choice from them
 	int input;
 	printf("posable targets are:\n");
 	for(int i=0;i<count;i++) printf("%d %s\n",i,(*targets[i]).name);
 	printf("input the corasponding number");
 	scanf("%d",&input);
 	
-	//check their choice is valid
+	//Check their choice is valid
 	if(input<0 || input>count){
 		printf("invalid input");
 		return 1;
 	}
 	
-	NearAttack(CurrPlayer,targets[input]);//attack
+	NearAttack(CurrPlayer,targets[input]);  //Attack
 	
 	return 0;
 	
-}//endo of choose player near attack
+}  //End of choose player near attack
 
 
 int choosePlayer_DistantAtt(struct player player,struct player players[]){
@@ -74,35 +74,33 @@ int choosePlayer_DistantAtt(struct player player,struct player players[]){
 	
 	return 0;
 	
-}//end of choose player distant attack
+}  //End of choose player distant attack
 
 /*
-finds all the slots that are within a certen range of a proticular slot
-takes in a slot to start from and the desired range
-it returns with pass by refrence an array of the slots in range
-the last argument should always be set to 0 when inishalising this funciont
+Finds all the slots that are within a certen range of a proticular slot, takes in a slot to start from and the desired range ,it returns with pass by refrence an array of the slots in range
+the last argument should always be set to 0 when inishalising this funcion
 */
 
 void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int count){
 	
-	if(!range){//if range is 0
+	if(!range){  //If range is 0
 		
-		//check if slot is already in array, if it is return
+		//Check if slot is already in array, if it is return
 		for(int i;i<count;i++){
 			if(currSlot == InRange[i]) return;
 		}
-		//log this slot
+		//Log this slot
 		InRange[count++] = currSlot;
 		
 		return;
 	}
-	if(range = 1){//when range is almost to the end required to get all slots within range
+	if(range = 1){  //When range is almost to the end required to get all slots within range
 		
-		//check if slot is already in array, if it is return
+		//Check if slot is already in array, if it is return
 		for(int i;i<count;i++){
 			if(currSlot == InRange[i]) return;
 		}
-		//log this slot
+		//Log this slot
 		InRange[count++] = currSlot;
 		
 		if(currSlot->up	!=	NULL)	
@@ -116,7 +114,7 @@ void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int coun
 		
 	}
 	
-	//if range is not 1 or 0
+	//If range is not 1 or 0
 	if(currSlot->up	!=	NULL)	
 	 	checkRange(currSlot->up,range-1,InRange,count);
 	if(currSlot->right	!=	NULL)	
@@ -126,7 +124,7 @@ void checkRange(struct slot *currSlot,int range,struct slot *InRange[], int coun
 	if(currSlot->down !=	NULL)	
 		checkRange(currSlot->down,range-1,InRange,count);
 	
-}//end of check range
+}  //End of check range
 
 int choosePlayer_MagAtt(int num_ofplayers,struct player CurrPlayer, struct player player[])
 {
