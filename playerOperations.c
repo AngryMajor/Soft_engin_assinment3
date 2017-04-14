@@ -103,22 +103,22 @@ void wizard(struct player *Current_Player)
 
 int move(struct player *player){
 
-	printf("were would you like to move\n");
-	printf("0:don't move\n");
+	printf("Where would you like to move\n");
+	printf("0:Don't move\n");
 	if(player->location->up != NULL){
-		printf("1:up to ");
+		printf("1: Up to ");
 		PrintMapSlotType(player->location->up);
 	}
 	if(player->location->right != NULL){
-		printf("\n2:right to ");
+		printf("\n2: Right to ");
 		PrintMapSlotType(player->location->right);
 	}
 	if(player->location->down != NULL){
-		printf("\n3:down to ");
+		printf("\n3: Down to ");
 		PrintMapSlotType(player->location->down);
 	}
 	if(player->location->left != NULL){
-		printf("\n4:left to ");
+		printf("\n4: Left to ");
 		PrintMapSlotType(player->location->left);
 	}
 	printf("\n");
@@ -126,7 +126,7 @@ int move(struct player *player){
 	int input;
 	scanf("%d",&input);
 	if(input<0||input>4){
-		printf("input invalid");
+		printf("Input invalid\n");
 		return 1;
 	}
 	
@@ -157,7 +157,7 @@ int move(struct player *player){
 	};
 	
 	return 0;
-}//end of move 
+}  //End of move 
 
 int AllPlayersNotDead(struct player players[],int choice){
 	int i;
@@ -168,7 +168,7 @@ int AllPlayersNotDead(struct player players[],int choice){
 	if(i<=choice) return 0;
 	return 1;
 	
-}//end of all players not dead
+}  //End of all players not dead
 
 
 /*
@@ -178,8 +178,6 @@ modifies the player struct in acordence to the slot it is entering
 */
 
 void EnterSlot(struct player *player, int SlotType){
-	
-	
 	
 	switch(SlotType){
 		case 0:  //If flat land
@@ -200,7 +198,7 @@ void EnterSlot(struct player *player, int SlotType){
 	}  //End of switch
 	
 	
-}//end of enter slot
+}  //End of enter slot
 
 
 /*
@@ -212,21 +210,21 @@ modifies the player struct in acordence to the slot it is entering
 void ExitSlot(struct player *player, int SlotType){
 	
 	switch(SlotType){
-		case 0://if flat land
+		case 0:  //If flat land
 			break;
 			
-		case 1://if hill
+		case 1:  //If hill
 			if(player->dexterity < 50) player->strength +=10;  
 			else if(player->dexterity >= 60) player->strength -=10;
 			break;
 			
-		case 2://if city
+		case 2:  //If city
 			if( player->smartness > 60) player->magic_skills -=10;
 			if( player->smartness<= 50) player->dexterity +=10;
 			break;
 		
 		default:
 			printf("Invalid slotType on exit\n");
-	}//end of switch
+	}  //End of switch
 	
-}//end of exit slot
+}  //End of exit slot
