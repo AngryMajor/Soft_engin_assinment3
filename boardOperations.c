@@ -29,8 +29,7 @@ void createBoard(){
 		}
 	}
 
-	//It sets up the adjacent slots for the slots that are
-	//not at the borders. These slots have 4 adjacent elements
+	//It sets up the adjacent slots for the slots that are not at the borders. These slots have 4 adjacent elements
 	for(int i =1; i< boardSize-1; i++){
 		for(int j=1;j < boardSize-1; j++){
 			board[i][j].up = &board[i-1][j];
@@ -40,42 +39,35 @@ void createBoard(){
 		}
 	}
 
-	//It sets up the adjacent slots for the slots that are
-	//in the first and the last row, except the slots at the edges.
+	//It sets up the adjacent slots for the slots that are in the first and the last row, except the slots at the edges.
 	//
 	for(int j = 1; j < boardSize -1; j++){
 		//It sets up the adjacent slots for the slots that are in the first row.
-		//These slots don't have an adjacent element on top of them
-		// because they are on the first row of the board
+		//These slots don't have an adjacent element on top of them because they are on the first row of the board
 		board[0][j].right = &board[0][j+1];
 		board[0][j].left = &board[0][j-1];
 		board[0][j].down = &board[1][j];
 		board[0][j].up = NULL;
 
 		//It sets up the adjacent slots for the slots that are in the last row.
-		//These slots don't have an adjacent element on down them
-		// because they are on the last row of the board
+		//These slots don't have an adjacent element on down them because they are on the last row of the board
 		board[boardSize - 1][j].right = &board[boardSize - 1][j+1];
 		board[boardSize -1][j].left = &board[boardSize - 1][j-1];
 		board[boardSize - 1][j].up = &board[boardSize - 2][j];
 		board[boardSize - 1][j].down = NULL;
 	}
 
-	//It sets up the adjacent slots for the slots that are
-	//in the first and the last column, except the slots at the edges.
-	//
+	//It sets up the adjacent slots for the slots that are in the first and the last column, except the slots at the edges.
 	for(int i = 1; i < boardSize -1; i++){
 		//It sets up the adjacent slots for the slots that are in the first column.
-		//These slots don't have an adjacent element on the left
-		// because they are on the first column of the board
+		//These slots don't have an adjacent element on the left because they are on the first column of the board
 		board[i][0].right = &board[i][1];
 		board[i][0].up = &board[i-1][0];
 		board[i][0].down = &board[i+1][0];
 		board[i][0].left = NULL;
 
 		//It sets up the adjacent slots for the slots that are in the last column.
-		//These slots don't have an adjacent element on the right
-		// because they are on the last column of the board
+		//These slots don't have an adjacent element on the right because they are on the last column of the board
 		board[i][boardSize-1].left = &board[i][boardSize-2];
 		board[i][boardSize -1].up = &board[i -1][boardSize-1];
 		board[i][boardSize -1].down = &board[i+1][boardSize -1];
@@ -103,24 +95,15 @@ void createBoard(){
 		board[boardSize - 1][boardSize-1].up = &board[boardSize-2][boardSize-1];
 		board[boardSize - 1][boardSize -1].left = &board[boardSize -1][boardSize -2];
 
-
-
-
-
-
-
-	//assigns a pointer to slot at position (0, 0)
+	//Assigns a pointer to slot at position (0, 0)
 	upLeft = &board[0][0];
-	//assigns pointer of pointer to slot at position (0, boardSize -1)
+	//Assigns pointer of pointer to slot at position (0, boardSize -1)
 	upRight = &board[0][boardSize -1];
-	//assigns pointer of pointer to slot at position ( boardSize -1,)
+	//Assigns pointer of pointer to slot at position ( boardSize -1,)
 	downLeft = &board[boardSize -1][0];
-	//assigns pointer of pointer to slot at position (boardSize -1, boardSize -1)
+	//Assigns pointer of pointer to slot at position (boardSize -1, boardSize -1)
 	downRight = &board[boardSize -1][boardSize -1];
 	}
-
-
-
 /*
  * This function traverses the board to find a slot at a predefined
  * position (row, column)
@@ -137,26 +120,18 @@ void PlacePlayer(struct player *player)
 	row = (rand() % 7);
 	struct slot *a;
 	
-		// /*If the the required slot is closer to the down-right
-	 // * corner of the board the search starts from downRight,
-	 // * which points to slot at position (boardSize-1, boarSize -1)*/
+	//If the the required slot is closer to the down-right corner of the board the search starts from downRight, which points to slot at position (boardSize-1, boarSize -1)
 	if(row >= boardSize/2){
 		if(column >= boardSize/2)
 			a = reachDesiredElement(row,column,downRight);
 		else
-		// /*If the the required slot is closer to the down-left
-		// * corner of the board the search starts from downLeft,
-		// * which points to slot at position (boardSize-1, 0)*/
+		//If the the required slot is closer to the down-left corner of the board the search starts from downLeft, which points to slot at position (boardSize-1, 0)
 			a = reachDesiredElement(row,column,downLeft);
 	 } else {
-		// /*If the the required slot is closer to the up-right
-		// * corner of the board the search starts from upRight,
-		// * which points to slot at position (0, boarSize -1)*/
+		//If the the required slot is closer to the up-right corner of the board the search starts from upRight, which points to slot at position (0, boarSize -1)
 		if(column >= boardSize/2)
 			a = reachDesiredElement(row,column, upRight);
-		// /*If the the required slot is closer to the up-left
-		// * corner of the board the search starts from upLeft,
-		// * which points to slot at position (0, 0)*/
+		//If the the required slot is closer to the up-left corner of the board the search starts from upLeft, which points to slot at position (0, 0)*/
 		else a = reachDesiredElement(row,column,upLeft);
 	 }
 	 
@@ -168,43 +143,37 @@ void PlacePlayer(struct player *player)
 struct slot *reachDesiredElement(int row, int column, const struct slot * initialSlot){
 
 	bool found = false;
-	//current slot
+	//Current slot
 	struct slot currentSlotPtr = *initialSlot;
 	struct slot *currentSlot = &currentSlotPtr;
 
-	//while the slot is not found
+	//While the slot is not found
 	while(found == false){
 
-		//if the row of the current slot is > of the row of the desired slot,
-		//we move up
+		//If the row of the current slot is > of the row of the desired slot, we move up
 		if(currentSlot->row > row){
-			//the current slot now points to the slot one row up
+			//The current slot now points to the slot one row up
 			currentSlot = currentSlot->up;
 
 		}
-		//if the row of the current slot is < of the row of the desired slot,
-		//we move down
+		//If the row of the current slot is < of the row of the desired slot, we move down
 		if(currentSlot->row < row){
-			//the current slot now points to the slot one row down
+			//The current slot now points to the slot one row down
 			currentSlot = currentSlot->down;
 
 		}
-		//if the column of the current slot is > of the column of the desired slot,
-		//we move left
+		//If the column of the current slot is > of the column of the desired slot, we move left
 		if(currentSlot->column > column){
-			//the current slot now points to the slot one column left
+			//The current slot now points to the slot one column left
 			currentSlot = currentSlot->left;
 		}
 
-		//if the column of the current slot is < of the column of the desired slot,
-		//we move right
+		//If the column of the current slot is < of the column of the desired slot, we move right
 		if(currentSlot->column < column){
-			//the current slot now points to the slot one column right
+			//The current slot now points to the slot one column right
 			currentSlot = currentSlot->right;
-
 		}
-		//if the current slot is at a column and a row equal to the desired column and row, respectively
-		// we found the slot
+		//If the current slot is at a column and a row equal to the desired column and row, respectively we found the slot
 		if(currentSlot->column == column && currentSlot->row == row){
 			found = true;
 		}
@@ -227,4 +196,3 @@ void PrintMapSlotType(struct slot *toPrint){
 	printf("%s",SlotNames[(*toPrint).thisSlotType]);
 	
 }  //End of printmapslot
-
